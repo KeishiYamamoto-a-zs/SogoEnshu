@@ -5,9 +5,16 @@
 <title>商品一覧</title>
 </head>
 <body>
-	<h1>商品一覧</h1>
-	1:キャベツ
-	2:大根
-	3:ニンジン
+<h1>商品一覧</h1>
+<table>
+	<tr>
+		<th>id</th>
+		<th>野菜名</th>
+	</tr>
+	<tr th:each="Vegetable:${items}" >
+        <td th:text="${Vegetable.id}"></td>
+        <td th:text="${Vegetable.items}"></td>
+     </tr>
+</table>
 </body>
 </html>
