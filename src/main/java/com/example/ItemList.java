@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 
@@ -16,6 +18,9 @@ public class ItemList{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	@Max(4)
+	@NotBlank
 	private String items;
 	
 	public void setName(String items) {

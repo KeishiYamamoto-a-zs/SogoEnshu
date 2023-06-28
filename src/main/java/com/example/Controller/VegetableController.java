@@ -19,7 +19,8 @@ public class VegetableController {
 	
 	@Autowired
 	private ItemRepository itemrepository;
-
+     
+	//データベースの情報をHTMLに出力
 	@GetMapping("/Vegetable")
 	public String getVegetabel(Model model){
 		List<ItemList>vegetables = itemrepository.findAll() ;
@@ -35,7 +36,7 @@ public class VegetableController {
 	public String postRequest() {
 	
 		
-		return "InputForm";
+		return "redirect:InputForm";
 		
 	}
 		
