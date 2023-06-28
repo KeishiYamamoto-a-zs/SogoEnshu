@@ -26,7 +26,7 @@ public class InputFormController {
 		return "InputForm";
 	}
 
-	@PostMapping("/InputForm")
+	@PostMapping("/add")
 	public String postRequest(@RequestParam("text1")String str, Model model) {
 		ItemList item = new ItemList();
 	    item.setName(str);
