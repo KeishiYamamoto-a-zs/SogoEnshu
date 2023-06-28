@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>野菜入力</title>
+</head>
+<body>
+<h1>登録したい野菜を入力してください</h1>
+<form method="post" action="/InputForm">
+	入力:<input type="text"name="text1"/>
+	<input type="submit"value="クリック"/>
+</form>
+<form method="post" action="/ToList">
+	<input type="submit"value="一覧はこちら"/>
+</form>
+</body>
+</html>

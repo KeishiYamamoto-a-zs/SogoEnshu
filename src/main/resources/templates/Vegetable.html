@@ -14,11 +14,10 @@
 	<tr th:each="Vegetable:${items}" >
         <td th:text="${Vegetable.id}"></td>
         <td th:text="${Vegetable.items}"></td>
-     </tr>
+     </tr>    
 </table>
-<form method="post" action="/Vegetable">
-	入力:<input type="text"name="text1"/>
-	<input type="submit"value="クリック"/>
-</form>
+　　<form method="post" action="/Vegetable">
+	<input type="submit"value="登録はこちら"/>
+	</form>
 </body>
 </html>
