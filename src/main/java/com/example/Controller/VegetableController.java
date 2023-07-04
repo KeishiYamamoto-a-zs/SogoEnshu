@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.ItemList;
-import com.example.repository.ItemRepository;
+import com.example.service.ApplicationServiceImpl;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -18,12 +18,13 @@ import lombok.extern.slf4j.Slf4j;
 public class VegetableController {
 	
 	@Autowired
-	private ItemRepository itemrepository;
+	ApplicationServiceImpl applicationServiceImpl;
      
 	//データベースの情報をHTMLに出力
 	@GetMapping("/Vegetable")
 	public String getVegetabel(Model model){
-		List<ItemList>vegetables = itemrepository.findAll() ;
+		List<ItemList> vegetables = applicationServiceImpl.findAll();
+		
 		model.addAttribute("items",vegetables);//キーitemsでリストvegetablesをTimeLeafに渡す
 		log.info(vegetables.toString());
 		
@@ -32,6 +33,8 @@ public class VegetableController {
 		
 	}
 	
+		
+
 	@PostMapping("/Vegetable")
 	public String postRequest() {
 	

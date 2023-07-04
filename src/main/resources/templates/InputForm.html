@@ -6,10 +6,10 @@
 </head>
 <body>
 <h1>登録したい野菜を入力してください</h1>
-<form method="post" action="/add">
-	入力:<input type="text" th:field="${itemList.items}"
+<form method="post" action="/addList">
+	入力:<input type="text" th:field="${inputForm.items}"
 	th:errorclass="is-invalid"/>
-	<div class="invalid-feedback" th:errors="${itemList.items}"></div>
+	<div class="invalid-feedback" th:errors="${inputForm.items}"></div>
 	<input type="submit"value="クリック"/>
 </form>
 <form method="post" action="/ToList">
