@@ -6,9 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.ItemList;
+import com.example.domain.vegetable.model.ItemList;
 import com.example.service.ApplicationServiceImpl;
 
 import lombok.extern.slf4j.Slf4j;
@@ -34,21 +33,6 @@ public class VegetableController {
 		
 	}
 	
-	@PostMapping("/detailVegetable")
-	public String selectVegetable() {
-	
-		
-		return "redirect:detailVegetable";
-		
-	}
-	
-	@PostMapping("/delete")
-	public String deleteItems(@RequestParam("Iddayo") int itemId) {
-		 
-		applicationServiceImpl.deleteItem(itemId);
-		
-		return "redirect:vegetable";	
-	}
 	
 	
 	@PostMapping("toInputForm")
@@ -60,7 +44,3 @@ public class VegetableController {
 	}
 	
 }	
-		
-		
-
-

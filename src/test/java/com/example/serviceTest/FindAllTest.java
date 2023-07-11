@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-import com.example.ItemList;
+import com.example.domain.vegetable.model.ItemList;
 import com.example.repository.ItemRepository;
 import com.example.service.ApplicationServiceImpl;
 

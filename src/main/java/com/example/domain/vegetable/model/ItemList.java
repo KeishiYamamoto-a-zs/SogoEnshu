@@ -1,4 +1,4 @@
-package com.example;
+package com.example.domain.vegetable.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.domain.vegetable.model.ItemList;
 import com.example.form.InputForm;
 import com.example.service.ApplicationServiceImpl;
 
@@ -29,15 +30,20 @@ public class InputFormController {
 	
 
 	@PostMapping("/addList")
-	public String postRequest(@ModelAttribute @Validated InputForm inputForm,BindingResult bindingResult) {
+	public String postRequest(@ModelAttribute @Validated InputForm input,BindingResult bindingResult) {
 		
 		if(bindingResult.hasErrors()) {
-	    	return getInputForm(inputForm);	    
+	    	return getInputForm(input);	    
 		}	
 		  
-		String cutString = applicationServiceImpl.cut(inputForm.getItems());
+		String cutString = applicationServiceImpl.cut(input.getItems());
 		
-	    applicationServiceImpl.saveItem(cutString,inputForm.getFarmer(),inputForm.getArea());
+		ItemList itemList = new ItemList();
+	    itemList.setItems(cutString);
+	    itemList.setFarmer(input.getFarmer());
+	    itemList.setArea(input.getArea());
+		
+	    applicationServiceImpl.saveItem(itemList);
 	    
 	    
 	    log.info(cutString);

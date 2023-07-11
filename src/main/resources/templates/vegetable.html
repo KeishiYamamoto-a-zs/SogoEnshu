@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>商品一覧</h1>
-<table>
+<table border="2">
 	<tr>
 		<th>id</th>
 		<th>野菜名</th>
@@ -21,13 +21,10 @@
          <td th:text="${vegetable.farmer}"></td>
          <td th:text="${vegetable.area}"></td>
          <td>
-		  <form method="get" action="/detailVegetable">
-             <button type="submit">詳細</button>
-          </form>
-          <form method="post" th:action="@{/delete}">
-            <input type="hidden" name="Iddayo" th:value="${vegetable.id}"/>
-            <button type="submit">削除</button>
-          </form>
+		  <a th:href="@{'/detailVegetable/'+ ${vegetable.id}}">
+			 詳細はこちら
+		  </a>
+		  
         </td>
         <td>
 			
