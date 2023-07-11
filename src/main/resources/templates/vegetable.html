@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>商品一覧</title>
+</head>
+<body>
+<h1>商品一覧</h1>
+<table>
+	<tr>
+		<th>id</th>
+		<th>野菜名</th>
+		<th>農家さん</th>
+		<th>産地</th>
+		<th>操作</th>
+		
+	</tr>	
+		 <tr th:each="vegetable : ${key}">
+         <td th:text="${vegetable.id}"></td>
+         <td th:text="${vegetable.items}"></td>
+         <td th:text="${vegetable.farmer}"></td>
+         <td th:text="${vegetable.area}"></td>
+         <td>
+		  <form method="get" action="/detailVegetable">
+             <button type="submit">詳細</button>
+          </form>
+          <form method="post" th:action="@{/delete}">
+            <input type="hidden" name="Iddayo" th:value="${vegetable.id}"/>
+            <button type="submit">削除</button>
+          </form>
+        </td>
+        <td>
+			
+	</tr>
+</table>
+     
+</table>
+   
+
+　　<form method="post" action="/toInputForm">
+	<input type="submit"value="登録はこちら"/>
+	</form>
+</body>
+</html>

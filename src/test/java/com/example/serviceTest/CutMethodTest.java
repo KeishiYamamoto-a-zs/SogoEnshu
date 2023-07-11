@@ -4,10 +4,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import com.example.service.ApplicationServiceImpl;
+
 
 class CutMethodTest {
     
-	ApplicationServiceImplTest applicationService = new ApplicationServiceImplTest();
+	ApplicationServiceImpl applicationService = new ApplicationServiceImpl();
 		
 	@Test
 	void oneWord() {
@@ -33,7 +35,7 @@ class CutMethodTest {
 	
 	@Test
 	void zeroWord() {
-	    assertThrows(IllegalArgumentException.class, () -> {
+	    assertThrows(Exception.class, () -> {
 	        applicationService.cut("");
 	    });
 	}

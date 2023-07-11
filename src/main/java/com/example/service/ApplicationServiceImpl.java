@@ -31,14 +31,25 @@ public class ApplicationServiceImpl implements ApplicationService {
 	    return truncatedStr;
 	}
 	
+	    ItemList itemList = new ItemList();
 	@Override
-	public ItemList saveItem(String cutString) {		
+	public ItemList saveItem(String cutString,String farmer,String area){		
 		ItemList itemList = new ItemList();
 	    itemList.setItems(cutString);
-	    itemrepository.save(itemList);
-		
+	    itemList.setFarmer(farmer);
+	    itemList.setArea(area);
+	    
+	    itemrepository.save(itemList);		
 	    return itemList;
 	}
 	
 
+
+
+	@Override
+    public void deleteItem(int itemId){
+		itemrepository.deleteById(itemId);
+	}
+	
+	
 }

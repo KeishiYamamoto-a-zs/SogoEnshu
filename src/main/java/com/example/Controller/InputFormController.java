@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.ItemList;
 import com.example.form.InputForm;
 import com.example.service.ApplicationServiceImpl;
 
@@ -22,40 +21,37 @@ public class InputFormController {
 	private ApplicationServiceImpl applicationServiceImpl;
 
      
-	@GetMapping("/InputForm")
-	public String getInputForm(@ModelAttribute InputForm form ) {
+	@GetMapping("/inputForm")
+	public String getInputForm(@ModelAttribute InputForm inputForm) {
 		
-		return "InputForm";
+		return "inputForm";
 	}
 	
 
 	@PostMapping("/addList")
-	public String postRequest(@ModelAttribute @Validated InputForm items,BindingResult bindingResult) {
+	public String postRequest(@ModelAttribute @Validated InputForm inputForm,BindingResult bindingResult) {
 		
 		if(bindingResult.hasErrors()) {
-	    	return getInputForm(items);	    
-		}
-		
-		ItemList itemList = new ItemList();
-		itemList.setItems(items.getItems());
-		
-		String cutString = applicationServiceImpl.cut(itemList.getItems());	
+	    	return getInputForm(inputForm);	    
+		}	
 		  
-	    applicationServiceImpl.saveItem(cutString);    
+		String cutString = applicationServiceImpl.cut(inputForm.getItems());
+		
+	    applicationServiceImpl.saveItem(cutString,inputForm.getFarmer(),inputForm.getArea());
 	    
 	    
 	    log.info(cutString);
 	    
-	    return "redirect:/Vegetable";
+	    return "redirect:/vegetable";
      }
      
 	    
 	
-	@PostMapping("/ToList")
+	@PostMapping("/toList")
 	public String postRequest() {
 	
 		
-		return "redirect:/Vegetable";
+		return "redirect:/vegetable";
 		
 	}
 	

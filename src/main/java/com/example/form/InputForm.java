@@ -17,4 +17,12 @@ public class InputForm {
 	@Size(min = 0, max = 4, message = "1～4文字以内で入力してください")
 	private String items;
 	
+	@NotBlank(message = "文字を入力してください")
+	@Size(min = 0, max = 4, message = "1～4文字以内で入力してください")
+	private String farmer;
+	
+	@NotBlank(message = "文字を入力してください")
+	@Size(min = 0, max = 4, message = "1～4文字以内で入力してください")
+	private String area;
+	
 }

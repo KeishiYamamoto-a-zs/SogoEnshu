@@ -11,5 +11,9 @@ public interface ApplicationService {
 	//一文字切り捨て
 	public String cut(String inputForm);
     //野菜登録 
-    public ItemList saveItem(String inputString);
+	public ItemList saveItem(String cutString,String farmer, String area);
+    
+    //データベース消去
+    public void deleteItem(int itemId);
+    
 }

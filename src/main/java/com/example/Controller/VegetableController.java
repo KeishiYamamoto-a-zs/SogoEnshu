@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.ItemList;
 import com.example.service.ApplicationServiceImpl;
@@ -21,30 +22,45 @@ public class VegetableController {
 	ApplicationServiceImpl applicationServiceImpl;
      
 	//データベースの情報をHTMLに出力
-	@GetMapping("/Vegetable")
-	public String getVegetabel(Model model){
+	@GetMapping("/vegetable")
+	public String getVegetable(Model model){
 		List<ItemList> vegetables = applicationServiceImpl.findAll();
 		
-		model.addAttribute("items",vegetables);//キーitemsでリストvegetablesをTimeLeafに渡す
+		model.addAttribute("key",vegetables);//キーitemsでリストvegetablesをTimeLeafに渡す
 		log.info(vegetables.toString());
 		
 		//Vegetable.htmlに遷移
-		return "Vegetable";
+		return "vegetable";
 		
 	}
 	
+	@PostMapping("/detailVegetable")
+	public String selectVegetable() {
+	
 		
-
-	@PostMapping("/Vegetable")
+		return "redirect:detailVegetable";
+		
+	}
+	
+	@PostMapping("/delete")
+	public String deleteItems(@RequestParam("Iddayo") int itemId) {
+		 
+		applicationServiceImpl.deleteItem(itemId);
+		
+		return "redirect:vegetable";	
+	}
+	
+	
+	@PostMapping("toInputForm")
 	public String postRequest() {
 	
 		
-		return "redirect:InputForm";
+		return "redirect:inputForm";
 		
 	}
+	
+}	
 		
 		
-		
-}
 
 

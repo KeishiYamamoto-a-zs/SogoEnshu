@@ -16,7 +16,9 @@ public class ItemList{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;	
 	private String items;
-	
+	private String farmer;
+	private String area;
+		
 	
 
 }
