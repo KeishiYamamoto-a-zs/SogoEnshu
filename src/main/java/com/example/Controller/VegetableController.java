@@ -32,15 +32,11 @@ public class VegetableController {
 		return "vegetable";
 		
 	}
-	
-	
-	
-	@PostMapping("toInputForm")
+		
+	@PostMapping("/toInputForm")
 	public String postRequest() {
-	
 		
-		return "redirect:inputForm";
-		
+		return "redirect:inputForm";		
 	}
 	
 }	
