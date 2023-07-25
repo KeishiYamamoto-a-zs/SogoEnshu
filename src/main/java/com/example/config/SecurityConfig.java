@@ -1,23 +1,23 @@
 package com.example.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
 public class SecurityConfig {
+	
+	@Autowired
+	private UserDetailsService userDetailService;
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -26,16 +26,18 @@ public class SecurityConfig {
 	            .loginPage("/login")
 	            .defaultSuccessUrl("/vegetable",true)
 	            .failureUrl("/login?error")
-	            .usernameParameter("userId")
+	            .usernameParameter("userMailaddress")
 	            .passwordParameter("password")
 	            .permitAll()
 	            
 	    ).logout(logout -> logout
-	            .logoutSuccessUrl("/")
+	            .logoutSuccessUrl("/login")
 	            
 	    ).authorizeHttpRequests(authz -> authz
 	            .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
 	            .requestMatchers("/login").permitAll()
+	            .requestMatchers("/signup").permitAll()
+	            .requestMatchers("/signupUser").permitAll()
 	            .requestMatchers("/general").hasRole("GENERAL")
 	            .requestMatchers("/admin").hasRole("ADMIN")
 	            .anyRequest().authenticated() //他のURLはログイン後のみアクセス可能
@@ -46,11 +48,14 @@ public class SecurityConfig {
 	}
 
 	@Bean
-	public PasswordEncoder passwordEncoder() {
-	  return new BCryptPasswordEncoder();
+
+	public BCryptPasswordEncoder passwordEncoder() {
+
+	return new BCryptPasswordEncoder();
+
 	}
 
-	@Bean
+	/*@Bean
 	public UserDetailsService users() {
 	  UserDetails admin = User.builder()
 	                          .username("admin")
@@ -62,8 +67,9 @@ public class SecurityConfig {
 	                         .password(passwordEncoder().encode("password"))
 	                         .authorities("USER")
 	                         .build();
-	  return new InMemoryUserDetailsManager(admin, user);
-	}
+	  return new InMemoryUserDetailsManager(admin, user);	  
+	  
+	} */
     
     
 }

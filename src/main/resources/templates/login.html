@@ -10,22 +10,22 @@
 	 <h2>ログイン</h2>
 	  <!--ユーザーID-->
 	  <div>
-		  <label for="userId">userID</label>
-		  <input type="text" placeholder="ユーザーID" name="userId"/>
+		  <label for="userId">メールアドレス</label>
+		  <input type="text" id="userMailaddress" name = "userMailaddress" placeholder="メールアドレス"/>
 	  </div>
 	  <!--パスワード-->
 	  <div>
 		  <label for="password">password</label>
-		  <input type="text" placeholder="パスワード" name="password"/>
+		  <input type="text" id = "password" name = "password" placeholder="パスワード"/>
 	  </div>
 	  
 	  <input type ="submit" value="ログイン"/>
-	  
-	  <a th:href="@{'/singup}">
 
 	</form>
-
-</div>	
+	
+	<div>
+	  <a th:href="@{'/signup'}">新規登録はこちら</a>
+	</div>	
 
 </body>
 </html>
