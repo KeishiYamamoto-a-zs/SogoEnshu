@@ -1,4 +1,4 @@
-package com.example.service;
+package com.example.securityService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +14,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.example.domain.vegetable.model.UserEntity;
+import com.example.service.UserService;
 
 @Service
 public class UserDetailServiceImpl implements UserDetailsService {

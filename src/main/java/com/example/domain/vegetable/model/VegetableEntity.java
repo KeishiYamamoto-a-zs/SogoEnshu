@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 @Entity  //データベースのテーブルとマッピングするクラスにつける
 @Table(name = "items")//データベース内のテーブル名を指定
-public class ItemList{
+public class VegetableEntity{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

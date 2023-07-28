@@ -4,12 +4,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import com.example.service.ApplicationServiceImpl;
+import com.example.service.VegetableServiceImpl;
 
 
 class CutMethodTest {
     
-	ApplicationServiceImpl applicationService = new ApplicationServiceImpl();
+	VegetableServiceImpl applicationService = new VegetableServiceImpl();
 		
 	@Test
 	void oneWord() {

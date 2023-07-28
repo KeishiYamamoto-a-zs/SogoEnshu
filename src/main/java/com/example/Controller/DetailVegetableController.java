@@ -10,9 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.domain.vegetable.model.ItemList;
+import com.example.domain.vegetable.model.VegetableEntity;
 import com.example.form.InputForm;
-import com.example.service.ApplicationServiceImpl;
+import com.example.service.ChangeStringServiceImpl;
+import com.example.service.VegetableServiceImpl;
 
 
 
@@ -20,12 +21,15 @@ import com.example.service.ApplicationServiceImpl;
 public class DetailVegetableController {
 	
 	@Autowired
-	ApplicationServiceImpl applicationServiceImpl;
+	VegetableServiceImpl vegetableServiceImpl;
+	
+	@Autowired
+	ChangeStringServiceImpl changeStringServiceImpl;
 	
       @GetMapping("/detailVegetable/{id}")
       public String getDetailVegetable(@PathVariable("id") int itemId, Model model,@ModelAttribute InputForm updateForm) {
     	  
-    	  ItemList vegetables = applicationServiceImpl.getVegetableId(itemId);
+    	  VegetableEntity vegetables = vegetableServiceImpl.getVegetableId(itemId);
     	  
     	  //Idをセット
     	  updateForm.setId(itemId);
@@ -37,17 +41,13 @@ public class DetailVegetableController {
       }
       
       @PostMapping("/updateList")
-  	public String updateList(@ModelAttribute InputForm updateForm,BindingResult bindingResult) {
+  	public String updateList(@ModelAttribute InputForm inputForm,BindingResult bindingResult) {
     	  		  
-  		String cutString = applicationServiceImpl.cut(updateForm.getItems());
+  		String cutString = changeStringServiceImpl.cut(inputForm.getItems());
   		
-  		ItemList itemList = new ItemList();
-  		itemList.setId(updateForm.getId());
-	    itemList.setItems(cutString);
-	    itemList.setFarmer(updateForm.getFarmer());
-	    itemList.setArea(updateForm.getArea());
+  		VegetableEntity vegetableEntity = vegetableServiceImpl.copyToEntity(cutString, inputForm);
   		
-  	    applicationServiceImpl.updateItem(itemList);
+	    vegetableServiceImpl.updateItem(vegetableEntity);
   	    
   	    
   	    return "redirect:/vegetable";
@@ -56,7 +56,7 @@ public class DetailVegetableController {
       @PostMapping("/delete")
   	  public String deleteItems(@RequestParam("Iddayo") int itemId) {
   	 	 
-  		applicationServiceImpl.deleteItem(itemId);
+    	vegetableServiceImpl.deleteItem(itemId);
   		
   		return "redirect:vegetable";	
   	}

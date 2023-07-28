@@ -11,9 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-import com.example.domain.vegetable.model.ItemList;
+import com.example.domain.vegetable.model.VegetableEntity;
 import com.example.repository.ItemRepository;
-import com.example.service.ApplicationServiceImpl;
+import com.example.service.VegetableServiceImpl;
 
 @SpringBootTest
 public class FindAllTest {
@@ -22,23 +22,23 @@ public class FindAllTest {
 	private ItemRepository itemRepository;
 	
 	@Autowired
-	ApplicationServiceImpl applicationService;
+	VegetableServiceImpl applicationService;
 	  
 	
 	@Test
 	void test(){
-		 ItemList items = new ItemList();
+		 VegetableEntity items = new VegetableEntity();
 		 items.setId(1);
 		 items.setItems("はくさい");
 		 
-		 List<ItemList> itemList = new ArrayList<ItemList>();
+		 List<VegetableEntity> itemList = new ArrayList<VegetableEntity>();
 		 itemList.add(items);
 		 
 		 when(itemRepository.findAll()).thenReturn(itemList);
 		 
-		 List<ItemList> result  = applicationService.findAll();
+		 List<VegetableEntity> result  = applicationService.findAll();
 		 
-		ItemList expectedItem =result.get(0);
+		VegetableEntity expectedItem =result.get(0);
 		assertEquals(1,expectedItem.getId());
 		assertEquals("はくさい",expectedItem.getItems());
 		

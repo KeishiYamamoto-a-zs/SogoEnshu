@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>商品詳細</title>
+</head>
+<body>
+<h1>商品詳細</h1>
+<table th:object="${key}">
+    <tr>
+        <th>id</th>
+        <th>野菜名</th>
+        <th>農家さん</th>
+        <th>産地</th>
+    </tr>   
+    <tr>
+        <td th:text="*{id}"></td>
+        <td th:text="*{items}"></td>
+        <td th:text="*{farmer}"></td>
+        <td th:text="*{area}"></td>
+    </tr>  
+</table>
+  <form id="form" method="post" action="/updateList"class="form-input">
+	  
+	   <input type= "hidden"th:field="${inputForm.id}"/>
+       <input type="text" th:field="${inputForm.items}" placeholder="野菜名"　
+	   th:errorclass="is-invalid"/>
+	   <div class="invalid-feedback" th:errors="*{inputForm.items}"></div>
+ 
+       <input type="text" th:field="${inputForm.farmer}" placeholder="農家名"　
+	   th:errorclass="is-invalid"/>
+	   <div class="invalid-feedback" th:errors="*{inputForm.farmer}"></div>
+   
+       <input type="text" th:field="${inputForm.area}" placeholder="産地"　
+	   th:errorclass="is-invalid"/>
+	   <div class="invalid-feedback" th:errors="*{inputForm.area}"></div>
+	   <input type="submit"value="更新"class="btn btn-primary btn-sm "/>
+    </form>
+    
+    <form method="post" th:action="@{/delete}">
+            <input type="hidden" name="Iddayo" th:value="${inputForm.id}"/>
+            <button type="submit">削除</button>
+    </form>
+    
+    <form method="post" action="/ToList">
+	    <input type="submit"value="一覧はこちら"/>
+	</form>
+</body>
+</html>

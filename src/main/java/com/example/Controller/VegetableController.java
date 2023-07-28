@@ -7,8 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.domain.vegetable.model.ItemList;
-import com.example.service.ApplicationServiceImpl;
+import com.example.domain.vegetable.model.VegetableEntity;
+import com.example.service.VegetableServiceImpl;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -18,12 +18,12 @@ import lombok.extern.slf4j.Slf4j;
 public class VegetableController {
 	
 	@Autowired
-	ApplicationServiceImpl applicationServiceImpl;
+	VegetableServiceImpl vegetableServiceImpl;
      
 	//データベースの情報をHTMLに出力
 	@GetMapping("/vegetable")
 	public String getVegetable(Model model){
-		List<ItemList> vegetables = applicationServiceImpl.findAll();
+		List<VegetableEntity> vegetables = vegetableServiceImpl.findAll();
 		
 		model.addAttribute("key",vegetables);//キーitemsでリストvegetablesをTimeLeafに渡す
 		log.info(vegetables.toString());
