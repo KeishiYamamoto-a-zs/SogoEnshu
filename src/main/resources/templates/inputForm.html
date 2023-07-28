@@ -3,31 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <title>野菜入力</title>
-<link rel="stylesheet"th:href="@{/InputForm/InputForm.css}">
-<link rel="stylesheet"th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/InputForm/InputForm.css}">
+<link rel="stylesheet"　th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 <!-- JS読込 -->
-  <script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
-  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
+<script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
 </head>
 <body>
-<h1 class= "text-center">登録したい野菜を入力してください</h1>
-   <form id="form-input" method="post" action="/addList"class="form-input">
-       <input type="text" th:field="${inputForm.items}" placeholder="野菜名"　
-	   th:errorclass="is-invalid"/>
-	   <div class="invalid-feedback" th:errors="*{inputForm.items}"></div>
-  
-       <input type="text" th:field="${inputForm.farmer}" placeholder="農家名"　
-	   th:errorclass="is-invalid"/>
-	   <div class="invalid-feedback" th:errors="*{inputForm.farmer}"></div>
-   
-       <input type="text" th:field="${inputForm.area}" placeholder="産地"　
-	   th:errorclass="is-invalid"/>
-	   <div class="invalid-feedback" th:errors="*{inputForm.area}"></div>
-	   <input type="submit"value="クリック"class="btn btn-primary btn-sm "/>
-   </form>
-   
-<form id="form-input" method="post" action="/toList"class="form-input">
-	<input type="submit"value="一覧はこちら"/>
-</form>
+	<h1 class="text-center">登録したい野菜を入力してください</h1>
+	<form id="form-input" method="post" action="/addList"
+		class="form-input">
+		<input type="text" th:field="${inputForm.items}" placeholder="野菜名"
+			　
+	   th:errorclass="is-invalid" />
+		<div class="invalid-feedback" th:errors="*{inputForm.items}"></div>
+
+		<input type="text" th:field="${inputForm.farmer}" placeholder="農家名"
+			　
+	   th:errorclass="is-invalid" />
+		<div class="invalid-feedback" th:errors="*{inputForm.farmer}"></div>
+
+		<input type="text" th:field="${inputForm.area}" placeholder="産地"
+			　
+	   th:errorclass="is-invalid" />
+		<div class="invalid-feedback" th:errors="*{inputForm.area}"></div>
+		<input type="submit" value="クリック" class="btn btn-primary btn-sm " />
+	</form>
+
+	<form id="form-input" method="post" action="/toList" class="form-input">
+		<input type="submit" value="一覧はこちら" />
+	</form>
 </body>
 </html>
