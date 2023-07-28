@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.domain.vegetable.model.VegetableEntity;
+import com.example.Entity.VegetableEntity;
 import com.example.form.InputForm;
 import com.example.service.ChangeStringServiceImpl;
 import com.example.service.VegetableServiceImpl;

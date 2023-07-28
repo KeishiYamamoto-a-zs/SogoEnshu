@@ -3,27 +3,35 @@
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <title>ログイン</title>
+
+<!-- css -->
+<link rel="stylesheet" th:href="@{/inputForm/inputForm.css}">
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<!-- JS読込 -->
+<script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
+<script th:src="@{/webjars/bootstrap/4.5.3/js/bootstrap.min.js}" defer></script>
 </head>
 <body>
 	<div>
 		<form method="post" th:action="@{/login}">
-			<h2>ログイン</h2>
+			<h2 class = "text-center">ログイン</h2>
 			<!--ユーザーID-->
-			<div>
-				<label for="userId">メールアドレス</label> <input type="text"
+			<div class = "text-center">
+				<label for="userId"></label> <input type="text"
 					id="userMailaddress" name="userMailaddress" placeholder="メールアドレス" />
-			</div>
 			<!--パスワード-->
-			<div>
-				<label for="password">password</label> <input type="text"
+	
+				<label for="password"></label> <input type="text"
 					id="password" name="password" placeholder="パスワード" />
 			</div>
-
-			<input type="submit" value="ログイン" />
+           
+            <div class = "text-center">
+				<input type="submit" value="ログイン"/>
+			</div>
 
 		</form>
 
-		<div>
+		<div class = "text-center">
 			<a th:href="@{'/signup'}">新規登録はこちら</a>
 		</div>
 </body>

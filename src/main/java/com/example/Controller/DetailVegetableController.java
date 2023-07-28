@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.domain.vegetable.model.VegetableEntity;
+import com.example.Entity.VegetableEntity;
 import com.example.form.InputForm;
 import com.example.service.ChangeStringServiceImpl;
 import com.example.service.VegetableServiceImpl;
@@ -32,8 +32,8 @@ public class DetailVegetableController {
     	  
     	  VegetableEntity vegetables = vegetableServiceImpl.getVegetableId(itemId);
     	  
-    	  //Idをセット
-    	  updateForm.setId(itemId);
+    	
+    	  //updateForm.setId(itemId);
     	     	  
     	  model.addAttribute("key", vegetables);
     	 
@@ -56,7 +56,7 @@ public class DetailVegetableController {
   	    
   	    
   	    return "redirect:/vegetable";
-      }
+       }
       
       @PostMapping("/delete")
   	  public String deleteItems(@RequestParam("Iddayo") int itemId) {
@@ -64,7 +64,7 @@ public class DetailVegetableController {
     	vegetableServiceImpl.deleteItem(itemId);
   		
   		return "redirect:vegetable";	
-  	}
+  	   }
       
       @PostMapping("/ToList")
       public String toList() {

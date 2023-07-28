@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.example.domain.vegetable.model.UserEntity;
+import com.example.Entity.UserEntity;
+import com.example.form.SignupForm;
 import com.example.repository.UserRepository;
 
 @Service
@@ -33,6 +34,18 @@ public class UserServiceImpl implements UserService {
 		Optional<UserEntity> users = userRepository.findByMailaddress(userMailAddress);
 	    UserEntity user = users.orElse(null);
 		return user;
+	}
+	
+	@Override
+	public UserEntity copyToEntity(SignupForm signupForm) {
+        UserEntity userEntity = new UserEntity();
+		
+		userEntity.setPassword(signupForm.getPassword());
+		userEntity.setMailaddress(signupForm.getMailaddress());
+		userEntity.setAuthority(signupForm.getAuthority());
+		
+		return userEntity;
+		
 	}
 
 	

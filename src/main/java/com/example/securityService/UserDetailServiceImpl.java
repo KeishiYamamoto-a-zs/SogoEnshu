@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.example.domain.vegetable.model.UserEntity;
+import com.example.Entity.UserEntity;
 import com.example.service.UserService;
 
 @Service

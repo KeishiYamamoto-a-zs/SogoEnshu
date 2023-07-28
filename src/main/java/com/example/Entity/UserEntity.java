@@ -1,4 +1,4 @@
-package com.example.domain.vegetable.model;
+package com.example.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,16 +9,16 @@ import lombok.Data;
 
 @Data
 @Entity  //データベースのテーブルとマッピングするクラスにつける
-@Table(name = "items")//データベース内のテーブル名を指定
-public class VegetableEntity{
+@Table(name = "user_info")//データベース内のテーブル名を指定
+public class UserEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;	
-	private String items;
-	private String farmer;
-	private String area;
-		
+	private int id;
+	private String password;
+	private String mailaddress;
+	private String name;
+	private String authority;
 	
 
 }

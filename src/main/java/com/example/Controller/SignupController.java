@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.domain.vegetable.model.UserEntity;
+import com.example.Entity.UserEntity;
 import com.example.form.SignupForm;
 import com.example.service.UserServiceImpl;
 
@@ -37,11 +37,7 @@ public class SignupController {
 	    	return getSignup(signupForm);	    
 		}
 		
-		UserEntity userEntity = new UserEntity();
-		
-		userEntity.setPassword(signupForm.getPassword());
-		userEntity.setMailaddress(signupForm.getMailaddress());
-		userEntity.setAuthority(signupForm.getAuthority());
+		UserEntity userEntity = userServiceImpl.copyToEntity(signupForm);
 		
 	    userServiceImpl.saveUserData(userEntity);
 	    

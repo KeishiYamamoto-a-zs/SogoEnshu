@@ -2,7 +2,7 @@ package com.example.service;
 
 import java.util.List;
 
-import com.example.domain.vegetable.model.VegetableEntity;
+import com.example.Entity.VegetableEntity;
 import com.example.form.InputForm;
 
 public interface VegetableService {

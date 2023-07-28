@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.example.domain.vegetable.model.UserEntity;
+import com.example.Entity.UserEntity;
 
 public interface UserRepository extends JpaRepository<UserEntity, Integer>{
     

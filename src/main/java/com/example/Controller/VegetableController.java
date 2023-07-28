@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.domain.vegetable.model.VegetableEntity;
+import com.example.Entity.VegetableEntity;
 import com.example.service.VegetableServiceImpl;
 
 import lombok.extern.slf4j.Slf4j;

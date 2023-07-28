@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <title>商品詳細</title>
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<!-- JS読込 -->
+<script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
+<script th:src="@{/webjars/bootstrap/4.5.3/js/bootstrap.min.js}" defer></script>
+</head>
 </head>
 <body>
 	<h1>商品詳細</h1>
@@ -20,30 +25,34 @@
 			<td th:text="*{area}"></td>
 		</tr>
 	</table>
+	
+	<div th:object ="${inputForm}">
 	<form id="form" method="post" action="/updateList" class="form-input">
 
-		<input type="hidden" th:field="${inputForm.id}" /> <input type="text"
-			th:field="${inputForm.items}" placeholder="野菜名"
+		<input type="hidden" th:field="*{id}" /> <input type="text"
+			th:field="*{items}" placeholder="野菜名"
 			　
 	   th:errorclass="is-invalid" />
-		<div class="invalid-feedback" th:errors="*{inputForm.items}"></div>
+		<div class="invalid-feedback" th:errors="*{items}"></div>
 
-		<input type="text" th:field="${inputForm.farmer}" placeholder="農家名"
+		<input type="text" th:field="*{farmer}" placeholder="農家名"
 			　
 	   th:errorclass="is-invalid" />
-		<div class="invalid-feedback" th:errors="*{inputForm.farmer}"></div>
+		<div class="invalid-feedback" th:errors="*{farmer}"></div>
 
-		<input type="text" th:field="${inputForm.area}" placeholder="産地"
+		<input type="text" th:field="*{area}" placeholder="産地"
 			　
 	   th:errorclass="is-invalid" />
-		<div class="invalid-feedback" th:errors="*{inputForm.area}"></div>
+		<div class="invalid-feedback" th:errors="*{area}"></div>
 		<input type="submit" value="更新" class="btn btn-primary btn-sm " />
 	</form>
 
 	<form method="post" th:action="@{/delete}">
-		<input type="hidden" name="Iddayo" th:value="${inputForm.id}" />
+		<input type="hidden" name="Iddayo" th:value="${id}" />
 		<button type="submit">削除</button>
 	</form>
+	
+	</div>
 
 	<form method="post" action="/ToList">
 		<input type="submit" value="一覧はこちら" />

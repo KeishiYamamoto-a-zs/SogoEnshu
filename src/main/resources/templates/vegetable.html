@@ -4,18 +4,19 @@
 <meta charset="UTF-8">
 <title>商品一覧</title>
 
-<link rel="stylesheet"　th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<!-- css -->
+<link rel="stylesheet" th:href="@{/vegetable.css}">
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 <!-- JS読込 -->
 <script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
-
+<script th:src="@{/webjars/bootstrap/4.5.3/js/bootstrap.min.js}" defer></script>
 </head>
 
 <body>
     <a th:href="@{/logout}">ログアウト</a>
-    <h1>商品一覧</h1>
-    <div class="table-wrapper">
-        <table>
+    <h1 class = "text-center">商品一覧</h1>
+    <div>
+        <table class="table table-striped center-table">
             <tr>
                 <th>id</th>
                 <th>野菜名</th>

@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.domain.vegetable.model.VegetableEntity;
+import com.example.Entity.VegetableEntity;
 import com.example.form.InputForm;
 import com.example.repository.ItemRepository;
 
