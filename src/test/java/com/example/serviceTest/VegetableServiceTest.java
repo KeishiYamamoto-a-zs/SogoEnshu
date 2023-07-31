@@ -16,7 +16,7 @@ import com.example.repository.ItemRepository;
 import com.example.service.VegetableServiceImpl;
 
 @SpringBootTest
-public class FindAllTest {
+public class VegetableServiceTest {
      
 	@MockBean
 	private ItemRepository itemRepository;

@@ -4,16 +4,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import com.example.service.VegetableServiceImpl;
+import com.example.service.ChangeStringServiceImpl;
 
 
-class CutMethodTest {
+class ChangeStringServiceTest {
     
-	VegetableServiceImpl applicationService = new VegetableServiceImpl();
+	ChangeStringServiceImpl changeStringService = new ChangeStringServiceImpl();
 		
 	@Test
 	void oneWord() {
-		String result = applicationService.cut("ご");
+		String result = changeStringService.cut("ご");
 		String expected = "";
 		assertEquals(expected,result);		
 		
@@ -21,14 +21,14 @@ class CutMethodTest {
 	
 	@Test
 	void twoWords() {
-		String result = applicationService.cut("ごぼ");
+		String result = changeStringService.cut("ごぼ");
 		String expected = "ご";
 		assertEquals(expected,result);	
 	}
     
 	@Test
 	void threeWords() {
-		String result = applicationService.cut("ごぼう");
+		String result = changeStringService.cut("ごぼう");
 		String expected = "ごぼ";
 		assertEquals(expected,result);	
 	}
@@ -36,7 +36,7 @@ class CutMethodTest {
 	@Test
 	void zeroWord() {
 	    assertThrows(Exception.class, () -> {
-	        applicationService.cut("");
+	    	changeStringService.cut("");
 	    });
 	}
 	
