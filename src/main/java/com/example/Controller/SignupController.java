@@ -12,9 +12,6 @@ import com.example.Entity.UserEntity;
 import com.example.form.SignupForm;
 import com.example.service.UserServiceImpl;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 @Controller
 public class SignupController {
 	
@@ -30,8 +27,7 @@ public class SignupController {
 	
 	@PostMapping("/signupUser")
 	public String postSignup(@ModelAttribute @Validated SignupForm signupForm,BindingResult bindingResult){
-		
-		log.info(signupForm.toString());
+
 		
 		if(bindingResult.hasErrors()) {
 	    	return getSignup(signupForm);	    

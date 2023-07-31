@@ -30,19 +30,15 @@
 	<form id="form" method="post" action="/updateList" class="form-input">
 
 		<input type="hidden" th:field="*{id}" /> <input type="text"
-			th:field="*{items}" placeholder="野菜名"
-			　
-	   th:errorclass="is-invalid" />
+			th:field="*{items}" placeholder="野菜名" th:errorclass="is-invalid" />
 		<div class="invalid-feedback" th:errors="*{items}"></div>
 
 		<input type="text" th:field="*{farmer}" placeholder="農家名"
-			　
-	   th:errorclass="is-invalid" />
+		th:errorclass="is-invalid" />
 		<div class="invalid-feedback" th:errors="*{farmer}"></div>
 
 		<input type="text" th:field="*{area}" placeholder="産地"
-			　
-	   th:errorclass="is-invalid" />
+		th:errorclass="is-invalid" />
 		<div class="invalid-feedback" th:errors="*{area}"></div>
 		<input type="submit" value="更新" class="btn btn-primary btn-sm " />
 	</form>

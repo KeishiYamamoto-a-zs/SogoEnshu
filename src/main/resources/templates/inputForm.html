@@ -13,25 +13,22 @@
 </head>
 
 <body>
+   <div th:object="${inputForm}">
 	<h1 id="form-input"class="form-input">野菜登録</h1>
 	<form id="form-input" method="post" action="/addList" class="form-input">
-		<input type="text" th:field="${inputForm.items}" placeholder="野菜名"
-			　
-	   th:errorclass="is-invalid" />
-		<div class="invalid-feedback" th:errors="*{inputForm.items}"></div>
+		<input type="text" th:field="*{items}" placeholder="野菜名"th:errorclass="is-invalid" />
+		<div class="invalid-feedback" th:errors="*{items}"></div>
 
-		<input type="text" th:field="${inputForm.farmer}" placeholder="農家名"
-			　
-	   th:errorclass="is-invalid" />
-		<div class="invalid-feedback" th:errors="*{inputForm.farmer}"></div>
+		<input type="text" th:field="*{farmer}" placeholder="農家名" th:errorclass="is-invalid" />
+		<div class="invalid-feedback" th:errors="*{farmer}"></div>
 		
-		<input type="text" th:field="${inputForm.area}" placeholder="産地"
-			
-	   th:errorclass="is-invalid" />
-		<div class="invalid-feedback" th:errors="*{inputForm.area}"></div>
+		<input type="text" th:field="*{area}" placeholder="産地"th:errorclass="is-invalid" />
+		<div class="invalid-feedback" th:errors="*{area}"></div>
+		
 		<input type="submit" value="クリック" class="btn btn-primary btn-sm " />
 	</form>
-
+   </div>
+   
 	<form id="form-input" method="post" action="/toList" class="form-input">
 		<input type="submit" value="一覧はこちら" />
 	</form>

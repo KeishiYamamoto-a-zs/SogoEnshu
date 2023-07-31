@@ -21,9 +21,7 @@ public class VegetableServiceImpl implements VegetableService {
 		List<VegetableEntity>vegetables = itemrepository.findAll() ;
 	
 		return vegetables;
-	}
-	
-	
+	}	
 	
 	@Override
 	public VegetableEntity saveItem(VegetableEntity itemList){		
@@ -39,8 +37,8 @@ public class VegetableServiceImpl implements VegetableService {
 	    return itemList;
 	}
 	
-    
-	public VegetableEntity getVegetableId(int itemId) {
+    @Override
+	public VegetableEntity getVegetableById(int itemId) {
 		Optional<VegetableEntity> items = itemrepository.findById(itemId);
 	    VegetableEntity item = items.orElse(null);
 		return item;

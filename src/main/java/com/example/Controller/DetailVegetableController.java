@@ -30,9 +30,8 @@ public class DetailVegetableController {
       @GetMapping("/detailVegetable/{id}")
       public String getDetailVegetable(@PathVariable("id") int itemId, Model model,@ModelAttribute InputForm updateForm) {
     	  
-    	  VegetableEntity vegetables = vegetableServiceImpl.getVegetableId(itemId);
+    	  VegetableEntity vegetables = vegetableServiceImpl.getVegetableById(itemId);
     	  
-    	
     	  //updateForm.setId(itemId);
     	     	  
     	  model.addAttribute("key", vegetables);
@@ -44,7 +43,7 @@ public class DetailVegetableController {
       @PostMapping("/updateList")
   	public String updateList(@ModelAttribute @Validated InputForm inputForm,BindingResult bindingResult,Model model) {
     	  
-    	  if(bindingResult.hasErrors()) {
+    	if(bindingResult.hasErrors()) {
   	    	return getDetailVegetable(inputForm.getId(),model,inputForm);	    
   		}	
     	  		  

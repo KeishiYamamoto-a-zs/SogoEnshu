@@ -11,13 +11,13 @@ public class SignupForm {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@NotBlank
+	@NotBlank(message = "文字を入力してください")
 	private String password;
-	@NotBlank
+	@NotBlank(message = "文字を入力してください")
 	private String mailaddress;
 	
 	private String name;
-	@NotBlank
+	@NotBlank(message = "文字を入力してください")
 	private String authority;
 
 }
